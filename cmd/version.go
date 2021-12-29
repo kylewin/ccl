@@ -12,7 +12,7 @@ import (
 )
 
 // versionCmd represents the version command
-var versionCmd = &cobra.Command{
+var (
 	shortened  = false
 	version    = "dev"
 	commit     = "none"
@@ -28,7 +28,7 @@ var versionCmd = &cobra.Command{
 			return
 		},
 	}
-}
+)
 
 func init() {
 	versionCmd.Flags().BoolVarP(&shortened, "short", "s", false, "Print just the version number.")
