@@ -3,7 +3,7 @@ A simple calculator in Golang and Cobra to return the final price with the input
 
 ## Installation
 ```
-go get github.com/kyledakid/ccl
+go get -u github.com/kyledakid/ccl
 ```
 
 ## Usage
