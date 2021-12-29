@@ -1,5 +1,10 @@
 # ccl
-A simple calculator to return the final price with the input included percentage or vice versa
+A simple calculator in Golang and Cobra to return the final price with the input included percentage or vice versa
+
+## Installation
+```
+go get github.com/kyledakid/ccl
+```
 
 ## Usage
 
