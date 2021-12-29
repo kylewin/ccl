@@ -15,7 +15,7 @@ Change: 33.33%
 
 ### To get price
 ```
-ccl tg -i [entry price] -o [exit price]
+ccl tg -i [entry price] -d [delta]
 
 ccl tg -i 6 -d 8
 Entry: 6.00
