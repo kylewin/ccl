@@ -13,26 +13,26 @@ import (
 
 // versionCmd represents the version command
 var versionCmd = &cobra.Command{
-	Use:   "version",
-	Short: "Show Version",
-	Long: `Show Version`,
-
-	Run: func(cmd *cobra.Command, args []string) {
-		var response string
-		versionOutput := goVersion.New(version, commit, date)
-
-		if shortened {
-			response = versionOutput.ToShortened()
-		} else {
-			response = versionOutput.ToJSON()
-		}
-		fmt.Printf("%+v", response)
-		return
-	},
+	shortened  = false
+	version    = "dev"
+	commit     = "none"
+	date       = "unknown"
+	output     = "json"
+	versionCmd = &cobra.Command{
+		Use:   "version",
+		Short: "Version will output the current build information",
+		Long:  ``,
+		Run: func(_ *cobra.Command, _ []string) {
+			resp := goVersion.FuncWithOutput(shortened, version, commit, date, output)
+			fmt.Print(resp)
+			return
+		},
+	}
 }
 
 func init() {
-	versionCmd.Flags().BoolVarP(&shortened, "short", "s", false, "Use shortened output for version information.")
+	versionCmd.Flags().BoolVarP(&shortened, "short", "s", false, "Print just the version number.")
+	versionCmd.Flags().StringVarP(&output, "output", "o", "json", "Output format. One of 'yaml' or 'json'.")
 	rootCmd.AddCommand(versionCmd)
 
 	// Here you will define your flags and configuration settings.
