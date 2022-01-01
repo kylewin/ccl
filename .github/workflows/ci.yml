@@ -14,6 +14,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Lint
-        run: go lint ./...
+        uses: golangci/golangci-lint-action@v2
+        with:
+          args: --issues-exit-code=0
+      - name: Vet
+        run: go vet ./...
       - name: Test
         run: go test ./...
