@@ -1,6 +1,9 @@
 # ccl
 A simple calculator in Golang and Cobra to return the final price with the input included percentage or vice versa
 
+![Release](https://github.com/kyledakid/ccl/actions/workflows/release.yml/badge.svg)
+![CI](https://github.com/kyledakid/ccl/actions/workflows/ci.yml/badge.svg)
+
 ## Installation
 ```
 go get -u github.com/kyledakid/ccl
