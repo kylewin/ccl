@@ -1,26 +1,46 @@
-name: goreleaser
-
-on:
-  push:
-    tags:
-      - '*'
+name: cclcicd
 
 jobs:
-  goreleaser:
+  golangci:
+    name: lint
     runs-on: ubuntu-latest
     steps:
-      -
-        name: Checkout
+      - uses: actions/checkout@v2
+      - name: golangci-lint
+        uses: golangci/golangci-lint-action@v2
+
+  gotest:
+    strategy:
+      matrix:
+        go-version: 1.17.5
+        os: ubuntu-latest
+    runs-on: ${{ matrix.os }}
+    steps:
+    - name: Install Go
+      uses: actions/setup-go@v2
+      with:
+        go-version: ${{ matrix.go-version }}
+    - name: Checkout code
+      uses: actions/checkout@v2
+    - name: Test
+      run: go test ./...
+
+  goreleaser:
+    on:
+      push:
+        tags:
+          - '*'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
         uses: actions/checkout@v2
         with:
           fetch-depth: 0
-      -
-        name: Set up Go
+      - name: Set up Go
         uses: actions/setup-go@v2
         with:
           go-version: 1.17.5
-      -
-        name: Run GoReleaser
+      - name: Run GoReleaser
         uses: goreleaser/goreleaser-action@v2
         with:
           # either 'goreleaser' (default) or 'goreleaser-pro'
