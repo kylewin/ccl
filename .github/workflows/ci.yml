@@ -13,7 +13,7 @@ jobs:
           go-version: 1.17.5
       - name: Checkout
         uses: actions/checkout@v2
-      - name: GolangCI
-        uses: golangci/golangci-lint-action@v2
+      - name: Lint
+        run: go lint ./...
       - name: Test
         run: go test ./...
