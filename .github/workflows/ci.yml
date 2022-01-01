@@ -4,7 +4,7 @@ on: pull_request
 
 jobs:
   ci:
-    name: lint
+    name: CI
     runs-on: ubuntu-latest
     steps:
       - name: Install Go 1.17.5
