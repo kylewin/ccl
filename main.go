@@ -30,8 +30,8 @@ var (
 )
 
 func main() {
-	cmd.version = version
-	cmd.commit = commit
-	cmd.date = date
+	cmd.Version = version
+	cmd.Commit = commit
+	cmd.Date = date
 	cmd.Execute()
 }

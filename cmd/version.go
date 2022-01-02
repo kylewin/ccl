@@ -12,20 +12,17 @@ import (
 
 // versionCmd represents the version command
 var (
-	shortened  = false
-	version    = "dev"
-	commit     = "none"
-	date       = "unknown"
-	output     = "json"
+	Version    = "dev"
+	Commit     = "none"
+	Date       = "unknown"
 	versionCmd = &cobra.Command{
 		Use:   "version",
 		Short: "Version will output the current build information",
 		Long:  ``,
 		Run: func(_ *cobra.Command, _ []string) {
-			var response string
-			versionOutput := goVersion.New(version, commit, date)
-			response = versionOutput.ToShortened()
-			fmt.Printf("%+v", response)
+			fmt.Printf("Version: %+v\n", Version)
+			fmt.Printf("Commit: %+v\n", Commit)
+			fmt.Printf("Date: %+v\n", Date)
 			return
 		},
 	}
