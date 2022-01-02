@@ -23,6 +23,15 @@ package main
 
 import "github.com/kyledakid/ccl/cmd"
 
+var (
+	version    = ""
+	commit     = ""
+	date       = ""
+)
+
 func main() {
+	cmd.version = version
+	cmd.commit = commit
+	cmd.date = date
 	cmd.Execute()
 }

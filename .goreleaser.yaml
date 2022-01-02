@@ -13,8 +13,6 @@ builds:
       - linux
       - windows
       - darwin
-    ldflags:
-      - -s -w -X github.com/kyledakid/ccl/cmd/cmd.version={{.Version}} -X github.com/kyledakid/ccl/cmd/cmd.date={{.Date}} -X github.com/kyledakid/ccl/cmd/cmd.commit{{.Commit}}
 archives:
   - replacements:
       darwin: Darwin

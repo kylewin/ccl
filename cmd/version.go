@@ -1,12 +1,11 @@
 /*
-Copyright © 2021 NAME HERE <EMAIL ADDRESS>
+Copyright © 2021 Kyle Nguyen <nvietthu@gmail.com>
 
 */
 package cmd
 
 import (
 	"fmt"
-	goVersion "go.hein.dev/go-version"
 
 	"github.com/spf13/cobra"
 )
