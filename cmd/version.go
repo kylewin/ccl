@@ -1,38 +1,34 @@
 /*
-Copyright © 2021 NAME HERE <EMAIL ADDRESS>
+Copyright © 2021 Kyle Nguyen <nvietthu@gmail.com>
 
 */
 package cmd
 
 import (
 	"fmt"
-	goVersion "go.hein.dev/go-version"
 
 	"github.com/spf13/cobra"
 )
 
 // versionCmd represents the version command
 var (
-	shortened  = false
-	version    = "dev"
-	commit     = "none"
-	date       = "unknown"
-	output     = "json"
+	Version    = "dev"
+	Commit     = "none"
+	Date       = "unknown"
 	versionCmd = &cobra.Command{
 		Use:   "version",
 		Short: "Version will output the current build information",
 		Long:  ``,
 		Run: func(_ *cobra.Command, _ []string) {
-			resp := goVersion.FuncWithOutput(shortened, version, commit, date, output)
-			fmt.Print(resp)
+			fmt.Printf("Version: %+v\n", Version)
+			fmt.Printf("Commit: %+v\n", Commit)
+			fmt.Printf("Date: %+v\n", Date)
 			return
 		},
 	}
 )
 
 func init() {
-	versionCmd.Flags().BoolVarP(&shortened, "short", "s", false, "Print just the version number.")
-	versionCmd.Flags().StringVarP(&output, "output", "o", "json", "Output format. One of 'yaml' or 'json'.")
 	rootCmd.AddCommand(versionCmd)
 
 	// Here you will define your flags and configuration settings.
