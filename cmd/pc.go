@@ -12,7 +12,7 @@ import (
 
 // pcCmd represents the pc command
 var pcCmd = &cobra.Command{
-	Use:   "pc [entry] [exit]",
+	Use:   "pc -i [entry] -o [exit]",
 	Short: "Percentage - Calculate Percentage",
 	Long: `Percentage - Calculate Delta in Percentage`,
 	Run: func(cmd *cobra.Command, args []string) {

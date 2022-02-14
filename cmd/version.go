@@ -23,7 +23,6 @@ var (
 			fmt.Printf("Version: %+v\n", Version)
 			fmt.Printf("Commit: %+v\n", Commit)
 			fmt.Printf("Date: %+v\n", Date)
-			return
 		},
 	}
 )
