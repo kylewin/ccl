@@ -17,15 +17,17 @@ var tgCmd = &cobra.Command{
 	Long: `Target - Calculate final value though a delta of Percentage`,
 	Run: func(cmd *cobra.Command, args []string) {
 		  entry,_ := cmd.Flags().GetFloat64("in")
-		  delta,_ := cmd.Flags().GetFloat64("delta")
-		  exit := ((entry * delta) / 100) + entry
+		  deltaPercent,_ := cmd.Flags().GetFloat64("delta")
+		  exit := ((entry * deltaPercent) / 100) + entry
+		  delta := exit - entry
 		  color := ""
 		  if exit < entry {
 			color = "\033[31m"
+			fmt.Printf("Entry: %0.2f\nDelta: %0.2f%%\n%sExit: %0.2f\nLossed: %0.2f\n",entry, deltaPercent, color, exit, delta)
 		  } else {
 			color = "\033[32m"
+			fmt.Printf("Entry: %0.2f\nDelta: %0.2f%%\n%sExit: %0.2f\nGained: %0.2f\n",entry, deltaPercent, color, exit, delta)
 		  }
-		  fmt.Printf("Entry: %0.2f\nDelta: %0.2f%%\n%sExit: %0.2f\n",entry, delta, color, exit)
 	},
 }
 
