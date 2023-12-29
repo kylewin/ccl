@@ -24,9 +24,9 @@ package main
 import "github.com/kyledakid/ccl/cmd"
 
 var (
-	version    = ""
-	commit     = ""
-	date       = ""
+	version = ""
+	commit  = ""
+	date    = ""
 )
 
 func main() {
